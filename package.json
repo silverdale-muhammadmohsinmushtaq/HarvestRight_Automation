@@ -1,0 +1,22 @@
+{
+  "name": "harvestright_automation",
+  "version": "1.0.0",
+  "description": "Automating Harvest Right QA using Playwright",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/silverdale-muhammadmohsinmushtaq/HarvestRight_Automation.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/silverdale-muhammadmohsinmushtaq/HarvestRight_Automation/issues"
+  },
+  "homepage": "https://github.com/silverdale-muhammadmohsinmushtaq/HarvestRight_Automation#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.56.0",
+    "@types/node": "^24.7.2"
+  }
+}
