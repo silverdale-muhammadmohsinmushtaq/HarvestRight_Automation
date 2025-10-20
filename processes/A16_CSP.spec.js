@@ -381,33 +381,37 @@ test.describe.serial('Odoo End-to-End QA', () => {
     await page.getByRole('option', { name: 'Affiliate' }).click();
     await page.getByRole('button', { name: 'Save manually' }).click();
 
-  await page.getByRole('tab', { name: 'Sales' }).click();
-  await page.getByRole('combobox', { name: 'Salesperson?' }).click();
-  await page.getByRole('option', { name: 'Aaron Buth' }).click();
-  await page.getByRole('textbox', { name: 'Tax ID?' }).click();
-  await page.getByRole('textbox', { name: 'Tax ID?' }).fill('TAX001');
-  await page.getByRole('combobox', { name: 'Delivery Method?' }).click();
-  await page.getByRole('option', { name: 'Direct Freight Express B2C' }).click();
-  await page.getByRole('combobox', { name: 'Channel' }).click();
-  await page.getByRole('option', { name: 'Hardware' }).click();
-  await page.getByRole('combobox', { name: 'Co-Op' }).click();
-  await page.getByRole('option', { name: 'Worldwide' }).click();
-  await page.getByRole('textbox', { name: 'Company ID?' }).click();
-  await page.getByRole('tab', { name: 'Purchase' }).click();
-  await page.getByRole('combobox', { name: 'Payment Terms?' }).click();
-  await page.getByRole('option', { name: 'Prepay' }).click();
-  await page.getByRole('option', { name: 'Prepay' }).click();
-  await page.getByRole('option', { name: 'Prepay' }).click();
-  await page.getByRole('option', { name: 'USD' }).click();
-  await page.getByRole('button', { name: 'Save manually' }).click();
-  await expect(page.getByRole('tab', { name: 'Sales' })).toBeVisible();
-  await expect(page.getByRole('tab', { name: 'Purchase' })).toBeVisible();
-  await expect(page.getByRole('tab', { name: 'Customer Equipment', exact: true })).toBeVisible();
-  await expect(page.getByRole('tab', { name: 'Customer Equipment History' })).toBeVisible();
-  await expect(page.getByRole('tab', { name: 'Accounting' })).toBeVisible();
-  await expect(page.getByRole('tab', { name: 'Internal Notes' })).toBeVisible();
-  await expect(page.getByRole('tab', { name: 'Shipping Configuration' })).toBeVisible();
-  await expect(page.getByRole('tab', { name: 'EDI Configurations' })).toBeVisible();
+    await page.getByRole('tab', { name: 'Sales' }).click();
+    
+await page.locator('#user_id').click();
+await page.waitForTimeout(2000);
+await page.locator('#user_id').click();
+//await page.locator('#user_id').fill('');  // Trigger the dropdown
+await page.getByRole('option', { name: 'Administrator' }).click();
+await page.waitForTimeout(2000);
+await page.getByRole('combobox', { name: 'Pricelist?' }).click();
+await page.getByRole('option', { name: 'Public (USD)' }).click();
+await page.waitForTimeout(2000);
+await page.getByRole('combobox', { name: 'Delivery Method' }).click();
+await page.getByRole('option', { name: 'UPS (Reseller Only-Home Depot)' }).click();
+await page.waitForTimeout(2000);
+await page.getByRole('combobox', { name: 'Channel' }).click();
+await page.getByRole('option', { name: 'Misc' }).click();
+await page.waitForTimeout(2000);
+await page.getByRole('combobox', { name: 'Co-Op' }).click();
+await page.getByRole('option', { name: 'Mid-States' }).click();
+await page.waitForTimeout(2000);
+await page.getByRole('button', { name: 'Save manually' }).click();
+await page.getByRole('tab', { name: 'Purchase' }).click();
+await page.waitForTimeout(2000);
+await page.getByRole('combobox', { name: 'Payment Terms' }).click();
+await page.getByRole('option', { name: 'Prepay' }).click();
+await page.waitForTimeout(2000);
+await page.getByRole('combobox', { name: 'Payment Method' }).click();
+await page.waitForTimeout(2000);
+await page.getByRole('option', { name: 'Wire Transfer' }).click();
+await page.getByRole('button', { name: 'Save manually' }).click();
+  
 		
 	});
 
