@@ -78,18 +78,4 @@ test('Verify the user can add information to sales and purchase tabs like sale p
     await page.waitForTimeout(2000);
     await page.getByRole('option', { name: 'Wire Transfer' }).click();
     await page.getByRole('button', { name: 'Save manually' }).click();
-
-
 });
-
-
-
-
-
-
-
-
-
-
-
-
