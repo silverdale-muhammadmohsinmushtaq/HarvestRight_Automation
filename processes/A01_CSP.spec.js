@@ -163,7 +163,7 @@ test.describe.serial('Odoo End-to-End QA', () => {
         await page.getByRole('combobox', { name: 'Customer' }).fill('**Test SalesCustomer 001**');
         await page.locator('#partner_id_0_0').click();
         await page.getByRole('button', { name: 'Save manually' }).click();
-        await expect(page.locator('body')).toContainText('Harvest Right Main');
+        await expect.soft(page.locator('body')).toContainText('Harvest Right Main');
         await page.getByRole('tab', { name: 'Other Info' }).click();
         await page.getByRole('combobox', { name: 'Fiscal Position?' }).click();
         await page.getByRole('combobox', { name: 'Fiscal Position?' }).fill('');
@@ -176,7 +176,7 @@ test.describe.serial('Odoo End-to-End QA', () => {
         await page.getByRole('button', { name: 'Add one' }).click();
         await page.locator('button.o_sale_product_configurator_edit').click();
         await page.getByRole('button', { name: 'Save manually' }).click();
-        await expect(page.locator('body')).toContainText('Small Order Warehouse');
+        await expect.soft(page.locator('body')).toContainText('Small Order Warehouse');
         await page.getByRole('button', { name: 'Add a product' }).click();
         await page.locator('.o_field_widget.o_required_modifier.o_field_sol_product_many2one > .o_field_many2one_selection > .o_input_dropdown > .o-autocomplete > .o-autocomplete--input').click();
         await page.getByRole('option', { name: 'Home Pro Freeze Dryer' }).click();
@@ -185,7 +185,7 @@ test.describe.serial('Odoo End-to-End QA', () => {
         await page.locator('button.o_sale_product_configurator_edit').click();
         await page.getByRole('button', { name: 'Ok' }).click();
         await page.getByRole('button', { name: 'Save manually' }).click();
-        await expect(page.locator('body')).toContainText('Harvest Right Main');
+        await expect.soft(page.locator('body')).toContainText('Harvest Right Main');
         await page.getByRole('checkbox', { name: 'Bypass Warehouse Rules' }).check();
         //Verify warehouse field is editable
         await expect.soft(page.getByRole('combobox', { name: 'Warehouse' })).toBeEnabled();
