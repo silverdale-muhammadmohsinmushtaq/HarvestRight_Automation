@@ -2,9 +2,6 @@ require('dotenv').config();
 const { test, expect } = require('@playwright/test');
 
 
-
-
-
 test('Verify the user can add information to sales and purchase tabs like sale persons, tax id, delivery method, payment terms and etc.', async ({ page }) => {
     await page.goto(process.env.SERVER_LINK);
     await page.getByRole('textbox', { name: 'Email' }).fill(process.env.HARVESTRIGHT_USERNAME);

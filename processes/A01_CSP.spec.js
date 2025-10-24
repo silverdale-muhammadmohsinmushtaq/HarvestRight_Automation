@@ -216,7 +216,18 @@ test.describe.serial('Odoo End-to-End QA', () => {
         await page.locator('#partner_id_0_0').click();
         await page.getByRole('button', { name: 'Save manually' }).click();
         await expect.soft(page.getByRole('textbox', { name: 'Expiration' })).toBeVisible();
-        await expect.soft(page.getByRole('textbox', { name: 'Expiration' })).toHaveValue('11/20/2025');
+        
+        // Get the actual expiration date from the page
+        const actualExpirationDate = await page.getByRole('textbox', { name: 'Expiration' }).inputValue();
+        
+        // Verify the expiration date is approximately 1 month from today (within 2 days tolerance)
+        const today = new Date();
+        const expectedMinDate = new Date(today.getFullYear(), today.getMonth() + 1, today.getDate() - 1);
+        const expectedMaxDate = new Date(today.getFullYear(), today.getMonth() + 1, today.getDate() + 1);
+        
+        const actualDate = new Date(actualExpirationDate);
+        expect.soft(actualDate.getTime()).toBeGreaterThanOrEqual(expectedMinDate.getTime());
+        expect.soft(actualDate.getTime()).toBeLessThanOrEqual(expectedMaxDate.getTime());
     });
 
     test('Verify that default Quotation Template field in the New Quotation form is empty', async () => {
