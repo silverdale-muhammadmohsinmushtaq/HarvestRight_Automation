@@ -4,5 +4,10 @@ DO NOT generate test code based on the scenario alone.
 DO run steps one by one using the tools provided by the Playwright MCP.
 Only after all steps are completed, emit a Playwright JavaScript test that uses @playwright/test.
 Save generated test file in the tests directory.
-Store login link, username and password in .env file.
 Execute the test file and iterate until the test passes.
+ONLY WRITE THE SCRIPT IN test.spec.js
+
+
+SERVER_LINK=https://harvestright-do-not-drop-training-24878354.dev.odoo.com/web
+HARVESTRIGHT_USERNAME=admin
+HARVESTRIGHT_PASSWORD=admin123

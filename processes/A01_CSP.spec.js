@@ -147,6 +147,8 @@ test.describe.serial('Odoo End-to-End QA', () => {
 
     });
 
+
+
     test('QC0676697Verify that clicking on the Sales module opens the Sales module', async () => {
         await page.goto(process.env.SERVER_LINK);
         await page.getByRole('option', { name: 'Sales' }).click();
@@ -244,6 +246,24 @@ test.describe.serial('Odoo End-to-End QA', () => {
         await expect.soft(page.getByRole('combobox', { name: 'Quotation Template' })).toHaveValue('Default Template');
         
     });
+
+    test('Verify the user can send Quotation by Email', async () => {
+        await page.goto(process.env.SERVER_LINK);
+        await page.getByRole('option', { name: 'Sales' }).click();
+        await page.waitForTimeout(10000);
+        await expect.soft(page.getByRole('menuitem', { name: 'Sales' })).toBeVisible();
+        await page.getByRole('button', { name: 'New' }).click();
+        await page.getByRole('combobox', { name: 'Customer' }).click();
+        await page.getByRole('combobox', { name: 'Customer' }).fill('**Test SalesCustomer 001**');
+        await page.locator('#partner_id_0_0').click();
+        await page.getByRole('button', { name: 'Save manually' }).click();
+        await page.getByRole('button', { name: 'Send by Email' }).click();
+        await page.getByRole('textbox', { name: 'Email' }).click();
+        await page.getByRole('textbox', { name: 'Email' }).fill('testSalesCustomer001@Example.com');
+        await page.getByRole('button', { name: 'Send' }).click();
+    });
+
+
 
 
     /////////////////////////////////////////////
